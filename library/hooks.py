@@ -192,4 +192,15 @@ fixtures = [
 				]
         }
     },
+    {
+        'dt': 'Address Template',
+        'filters': {
+            'name': 
+				['in', 
+					[
+						'Egypt'	
+					]
+				]
+        }
+    },	
 ]
