@@ -6,12 +6,16 @@ from frappe.model.document import Document
 
 class LibraryTransaction(Document):
 	def before_submit(self):
+		library_member = frappe.get_doc("Library Member", self.library_member)
 		if self.transaction_type_section == "Issue":
 			self.validate_issue()
+			self.self.validate_max_number_of_issued_articles(library_member)
 			# set the article status to be Issued
 			article = frappe.get_doc("Library Article", self.library_article)
 			article.status = "Issued"
 			article.save()
+			library_member.issued_articles += 1
+			library_member.save()
 
 		elif self.transaction_type_section == "Return":
 			self.validate_return()
@@ -19,9 +23,12 @@ class LibraryTransaction(Document):
 			article = frappe.get_doc("Library Article", self.library_article)
 			article.status = "Available"
 			article.save()
+			library_member.issued_articles -= 1
+			library_member.save()
 
 	def validate_issue(self):
 		self.validate_membership()
+		
 		article = frappe.get_doc("Library Article", self.library_article)
 		# article cannot be issued if it is already issued
 		if article.status == "Issued":
@@ -46,3 +53,10 @@ class LibraryTransaction(Document):
 		)
 		if not valid_membership:
 			frappe.throw("The member does not have a valid membership")
+
+	def validate_max_number_of_issued_articles(self,library_member):
+		library_settings = frappe.get_single("Library Settings")
+		if library_member.issued_articles + 1 > library_settings.maximum_number_of_issued_articles :
+			frappe.throw("The member has been reached maximum number of issued articles")
+
+
