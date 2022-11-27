@@ -1,0 +1,174 @@
+{
+ "actions": [],
+ "autoname": "LT-.YYYY.-.#####",
+ "creation": "2022-11-05 18:22:23.965883",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_1",
+  "library_member",
+  "full_name",
+  "member_phone",
+  "member_email",
+  "column_break_4",
+  "member_image_display",
+  "member_image",
+  "section_break_6",
+  "library_article",
+  "transaction_type_section",
+  "date",
+  "expected_return_date",
+  "author",
+  "column_break_12",
+  "article_image_disply",
+  "article_image",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "library_member",
+   "fieldtype": "Link",
+   "label": "Library Member",
+   "options": "Library Member"
+  },
+  {
+   "fetch_from": "library_member.full_name",
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Full Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "library_member.phone",
+   "fieldname": "member_phone",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Member Phone",
+   "options": "Phone",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "library_member.email",
+   "fieldname": "member_email",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Member Email",
+   "options": "Email",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "member_image_display",
+   "fieldtype": "Image",
+   "label": "Member Image Display",
+   "options": "member_image"
+  },
+  {
+   "fetch_from": "library_member.image",
+   "fieldname": "member_image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Member Image",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "library_article",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Library Article",
+   "options": "Library Article"
+  },
+  {
+   "fieldname": "transaction_type_section",
+   "fieldtype": "Select",
+   "label": "Transaction type",
+   "options": "\nIssue\nReturn"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "options": "Today()"
+  },
+  {
+   "depends_on": "eval:doc.transaction_type_section=='Issue'",
+   "fieldname": "expected_return_date",
+   "fieldtype": "Date",
+   "label": "Expected Return Date"
+  },
+  {
+   "fetch_from": "library_article.author",
+   "fieldname": "author",
+   "fieldtype": "Data",
+   "label": "Author",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "article_image_disply",
+   "fieldtype": "Image",
+   "label": "Article Image Disply",
+   "options": "article_image"
+  },
+  {
+   "fetch_from": "library_article.image",
+   "fieldname": "article_image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Article Image",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Library Transaction",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2022-11-27 19:32:53.866735",
+ "modified_by": "Administrator",
+ "module": "Library",
+ "name": "Library Transaction",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
