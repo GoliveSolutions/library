@@ -2,7 +2,6 @@
 # For license information, please see license.txt
 
 import frappe
-from frappe.model.docstatus import DocStatus
 from frappe.model.document import Document
 
 class LibraryTransaction(Document):
@@ -40,7 +39,7 @@ class LibraryTransaction(Document):
 			"Library Membership",
 			{
 				"library_member": self.library_member,
-				"docstatus": DocStatus.submitted(),
+				"docstatus": 1,
 				"from_date": ("<", self.date),
 				"to_date": (">", self.date),
 			},

@@ -2,7 +2,6 @@
 # For license information, please see license.txt
 
 import frappe
-from frappe.model.docstatus import DocStatus
 from frappe.model.document import Document
 
 class LibraryMembership(Document):
@@ -11,7 +10,7 @@ class LibraryMembership(Document):
 			"Library Membership",
 			{
 				"library_member": self.library_member,
-				"docstatus": DocStatus.submitted(),
+				"docstatus": 1,
 				# check if the membership's end date is later than this membership's start date
 				"to_date": (">", self.from_date),
 			},
