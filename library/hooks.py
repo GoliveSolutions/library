@@ -179,3 +179,17 @@ user_data_fields = [
 #	"library.auth.validate"
 # ]
 
+#Workspace
+fixtures = [
+    {
+        'dt': 'Workspace',
+        'filters': {
+            'name': 
+				['in', 
+					[
+						'Library'	
+					]
+				]
+        }
+    },
+]
