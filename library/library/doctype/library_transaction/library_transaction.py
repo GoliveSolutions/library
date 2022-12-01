@@ -9,7 +9,7 @@ class LibraryTransaction(Document):
 		library_member = frappe.get_doc("Library Member", self.library_member)
 		if self.transaction_type_section == "Issue":
 			self.validate_issue()
-			self.self.validate_max_number_of_issued_articles(library_member)
+			self.validate_max_number_of_issued_articles(library_member)
 			# set the article status to be Issued
 			article = frappe.get_doc("Library Article", self.library_article)
 			article.status = "Issued"

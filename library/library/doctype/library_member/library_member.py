@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 class LibraryMember(Document):
-	def before_save(self):
+	def before_insert(self):
 		self.full_name = f'{self.first_name} {self.last_name or ""}'
