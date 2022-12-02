@@ -203,4 +203,29 @@ fixtures = [
 				]
         }
     },	
+	{
+		'dt':'Print Format',
+		    'filters': {
+            'name': 
+				['in', 
+					[
+						'performa Invoice',
+						'Performa Sales Order'	
+					]
+				]
+        }
+	},	
+	{
+		'dt':'Custom Field',
+		    'filters': {
+            'name': 
+				['in', 
+					[
+						'Sales Order-client_id'
+					]
+				]
+        }
+	}
 ]
+#
+#
