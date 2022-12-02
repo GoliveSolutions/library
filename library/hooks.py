@@ -221,7 +221,8 @@ fixtures = [
             'name': 
 				['in', 
 					[
-						'Sales Order-client_id'
+						'Sales Order-client_id',
+						'Customer-client_id',
 					]
 				]
         }
